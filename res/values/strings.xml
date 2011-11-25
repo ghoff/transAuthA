@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android Transauth</string>
+    <string name="app_name">Transaction Authentication</string>
     <string name="stringGetBarcode">Get QR Code</string>
     <string name="stringValidate">Validate code</string>
     <string name="stringCode">or paste code here</string>
@@ -11,5 +11,7 @@
     <string name="install_dialog_message">To scan barcodes containing keys, you must install the ZXing barcode scanner.</string>
     <string name="install_button">Install</string>
     <string name="cancel">Cancel</string>
+    <string name="key_data">Key data</string>
+    <string name="prefs">Preferences</string>
 
 </resources>
