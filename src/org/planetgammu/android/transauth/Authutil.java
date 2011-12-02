@@ -57,8 +57,8 @@ public class Authutil {
 		long[] i = {account,amount,pin};
 		return(i);
 	}
-	public long[] decryptDecodeMessage(byte[] key) throws Exception {
-		decryptMessage(key);
+	public long[] decryptDecodeMessage(String key) throws Exception {
+		decryptMessage(hexStringToByteArray(key));
 		return decodeMessage();
 	}
 }

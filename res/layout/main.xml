@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayoutH"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -40,6 +40,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/stringValidate"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/buttonKeys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/config_button"
         android:textSize="20sp" />
 
 </LinearLayout>

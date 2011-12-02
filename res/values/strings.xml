@@ -13,5 +13,8 @@
     <string name="cancel">Cancel</string>
     <string name="key_data">Key data</string>
     <string name="prefs">Preferences</string>
+    <string name="config_button">Configure keys</string>
+    <string name="delete_button">Delete</string>
+    <string name="add_key">Add new key</string>
 
 </resources>
