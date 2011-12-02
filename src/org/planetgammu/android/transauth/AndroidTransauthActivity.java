@@ -2,6 +2,7 @@ package org.planetgammu.android.transauth;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class AndroidTransauthActivity extends Activity implements OnClickListener, 
-	OnKeyListener, DialogInterface.OnClickListener {
+	OnKeyListener {
 
 	private Button buttonValidate;
 	private Button buttonGetBarcode;
@@ -106,7 +107,7 @@ public class AndroidTransauthActivity extends Activity implements OnClickListene
 			intentScan.putExtra("SCAN_MODE", "QR_CODE_MODE");
 			intentScan.putExtra("SAVE_HISTORY", false);
 			try { startActivityForResult(intentScan, SCAN_REQUEST); }
-			catch (ActivityNotFoundException e) { showDownloadDialog(); }
+			catch (ActivityNotFoundException e) { showDialog(SCAN_REQUEST); }
 			codeVerified = false;
 		}
 	}
@@ -120,41 +121,29 @@ public class AndroidTransauthActivity extends Activity implements OnClickListene
 	/**
 	 * Prompt to download ZXing from Market. If Market app is not installed, such 
 	 * as on a development phone, open the HTTPS URI for the ZXing apk.
+	 * @return 
 	 */
-	private void showDownloadDialog() {
-		new AlertDialog.Builder(this)
+	protected Dialog onCreateDialog(int dialogNo) {
+		if (dialogNo != SCAN_REQUEST)
+			return null;
+		Dialog dialog = new AlertDialog.Builder(this)
 			.setTitle(R.string.install_dialog_title)
 			.setMessage(R.string.install_dialog_message)
 			.setIcon(android.R.drawable.ic_dialog_alert)
-			.setPositiveButton(R.string.install_button,	this)
+			.setPositiveButton(R.string.install_button,	new DialogClick())
 			.setNegativeButton(R.string.cancel, null)
-			.show();
+			.create();
+		return dialog;
 		}
-	public void onClick(DialogInterface dialog, int whichButton) {
-		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ZXING_MARKET));
-		try { startActivity(intent); }
-		catch (ActivityNotFoundException e) { // if no Market app
-			intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ZXING_DIRECT));
-			startActivity(intent);
-		}
-	}
 	
-	/* don't want an options menu anymore
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
-		return true;
-	}
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.menuItem:
-//			startActivity(new Intent(this, PrefsActivity.class));
-			startActivity(new Intent(this, KeyManagementActivity.class));
-			break;
+	class DialogClick implements DialogInterface.OnClickListener {
+		public void onClick(DialogInterface dialog, int whichButton) {
+			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ZXING_MARKET));
+			try { startActivity(intent); }
+			catch (ActivityNotFoundException e) { // if no Market app
+				intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ZXING_DIRECT));
+				startActivity(intent);
+			}
 		}
-		return true;
 	}
-	end of unwanted options menu */
 }
