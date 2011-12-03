@@ -6,7 +6,6 @@
     <string name="stringCode">or paste code here</string>
     <string name="stringResults">Destination account number is: %1$d\nAmount to be transfered: %2$.2f\nPlease enter pin %3$d to verify transaction</string>
     <string name="demoCode">Demo code</string>
-
     <string name="install_dialog_title">Install barcode scanner?</string>
     <string name="install_dialog_message">To scan barcodes containing keys, you must install the ZXing barcode scanner.</string>
     <string name="install_button">Install</string>
@@ -16,5 +15,11 @@
     <string name="config_button">Configure keys</string>
     <string name="delete_button">Delete</string>
     <string name="add_key">Add new key</string>
+    <string name="enter_key_id">Enter key id</string>
+    <string name="enter_id_hint">integer</string>
+    <string name="enter_key_label">Enter key</string>
+    <string name="enter_key_hint">Enter your key</string>
+    <string name="submit_button">Save</string>
+    <string name="done">Done</string>
 
 </resources>

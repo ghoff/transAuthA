@@ -4,16 +4,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/addKey"
+    <ListView
+        android:id="@+id/keyList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_key" />
+        android:layout_weight="1"
+        android:layout_marginTop="10dip">
 
-    <ListView
-        android:id="@+id/key_list"
+    </ListView>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </ListView>
+
+        <Button
+            android:id="@+id/addKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add_key"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/doneKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/done"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 </LinearLayout>

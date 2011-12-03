@@ -66,7 +66,6 @@ public class KeyData {
 		}
 	}
 
-
 	public static class KeyOpenHelper extends SQLiteOpenHelper {
 
 		KeyOpenHelper(Context context) {
@@ -78,14 +77,10 @@ public class KeyData {
 					"CREATE TABLE %s (%s INTEGER PRIMARY KEY, %s TEXT NOT NULL)",
 					DBNAME, ID_COLUMN, KEY_COLUMN);
 			db.execSQL(dbcreate);
-			
 		}
-
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			// TODO Auto-generated method stub
-			
 		}
-		
 	}
 }
