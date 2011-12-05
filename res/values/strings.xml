@@ -21,5 +21,7 @@
     <string name="enter_key_hint">Enter your key</string>
     <string name="submit_button">Save</string>
     <string name="done">Done</string>
+    <string name="delete_message">Delete this key?</string>
+    <string name="yes">Yes</string>
 
 </resources>
